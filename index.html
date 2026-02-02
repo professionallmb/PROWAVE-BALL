@@ -184,10 +184,6 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
 <body>
 
 <!-- BACKGROUND VIDEO -->
-<video id="bg-video" autoplay muted loop playsinline>
-  <source src="Video Project 4.mp4" type="video/mp4">
-</video>
-
 <!-- IMAGE CAROUSEL -->
 <section class="carousel">
   <div class="carousel-track">
@@ -275,6 +271,13 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   }
 }
 </script>
+<!-- PLAYER VIDEO -->
+<section class="player-video">
+  <video autoplay muted loop playsinline>
+    <source src="Video Project 4.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
 
 <!-- CAROUSEL JS -->
 <script>
