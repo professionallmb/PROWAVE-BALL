@@ -36,12 +36,11 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
 }
 .carousel-track img {
   width: 100%;
-  flex-shrink: 0;
   height: 500px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  transition: transform 0.3s ease;
+  object-fit: contain;   /* SHOW FULL IMAGE */
+  background: #000;      /* black bars if needed */
 }
+
 .carousel-track img:hover {
   transform: scale(1.02);
 }
@@ -124,6 +123,9 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   color: var(--text-dark);
   font-weight: bold;
   border: 1px solid #ccc;
+   background-size: cover;      /* FILL container */
+  background-position: center;
+  overflow: hidden;
 }
 .player-info h2 {
   font-size: 2rem;
@@ -186,11 +188,14 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
 <!-- IMAGE CAROUSEL -->
 <section class="carousel">
   <div class="carousel-track">
-    <img src="557749884_832345399308516_7827875189184831086_n (1).jpg" alt="Cover">
-    <img src="342018834_158261233558489_5464469159926373121_n.jpg" alt="Vistula">
-    <img src="481950588_9006043949522084_2635823698900922121_n.jpg" alt="AZS UW">
-    <img src="481970377_9006043962855416_1132835275726108939_n.jpg" alt="Trojka">
-    <img src="486952594_9149563175170160_5600242061185929716_n.jpg" alt="Costa do Sol">
+    <img src="557749884_832345399308516_7827875189184831086_n (1).jpg" alt="">
+    <img src="557624557_832343755975347_3927666932069279511_n (1).jpg" alt="">
+    <img src="514401373_757726633437060_6099201945284542883_n (1).jpg" alt="">
+    <img src="514285287_796776812865375_4235338983271540027_n.jpg" alt="">
+    <img src="486952594_9149563175170160_5600242061185929716_n.jpg" alt="">
+    <img src="481970377_9006043962855416_1132835275726108939_n.jpg" alt="">
+    <img src="481950588_9006043949522084_2635823698900922121_n.jpg" alt="">
+    <img src="342018834_158261233558489_5464469159926373123_n.jpg" alt="">
   </div>
   <div class="carousel-buttons">
     <button id="prev">&#10094;</button>
