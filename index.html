@@ -170,6 +170,28 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   color: var(--accent);
   text-shadow: 0 0 5px var(--accent);
 }
+<style>
+.player-video {
+  max-width: 950px;       /* Maximum width of video container */
+  width: 90%;             /* Responsive width */
+  margin: 50px auto;      /* Center on page */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 40px #fff, 0 0 60px #fff inset;
+  border: 1px solid #fff;
+}
+
+.player-video video {
+  width: 100%;           /* Fill container width */
+  height: 100%;          /* Fill container height */
+  max-height: 540px;     /* Optional: prevent too tall on large screens */
+  object-fit: cover;     /* Video scales to fill without stretching */
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 0 30px #fff inset;
+  opacity: 1;            /* Full visibility */
+}
+</style>
 
 /* RESPONSIVE */
 @media(max-width:768px){
