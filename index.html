@@ -7,21 +7,19 @@
 
 <!-- GOOGLE VERIFICATION -->
 <meta name="google-site-verification" content="google5b55417f40f486ff.html">
-
 <style>
 :root {
-  --bg-dark: #121212;
-  --bg-light: #fff;        /* full white containers for glow */
-  --accent: #fff;          /* white glow accent */
-  --text-dark: #222;
-  --text-light: #000;
+  --bg-light: #fff;          /* Base white for containers */
+  --accent1: #00f0ff;        /* Cyan glow */
+  --accent2: #ff00f0;        /* Magenta glow */
+  --accent3: #ff6fff;        /* Pink/purple glow */
   --radius: 16px;
   --font-main: "Inter", system-ui, sans-serif;
 }
 
 /* RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: var(--font-main); background: #fff; color: var(--text-dark); line-height:1.5; overflow-x: hidden; }
+body { font-family: var(--font-main); background: #121212; color: #fff; line-height:1.5; overflow-x: hidden; }
 
 /* CAROUSEL */
 .carousel {
@@ -30,9 +28,8 @@ body { font-family: var(--font-main); background: #fff; color: var(--text-dark);
   margin: 40px auto;
   overflow: hidden;
   border-radius: var(--radius);
-  box-shadow: 0 0 30px var(--accent);
-  background: #fff;
-  z-index: 5;
+  box-shadow: 0 0 40px var(--accent1), 0 0 60px var(--accent2) inset;
+  background: #111;
 }
 .carousel-track {
   display: flex;
@@ -42,8 +39,8 @@ body { font-family: var(--font-main); background: #fff; color: var(--text-dark);
   width: 100%;
   height: 500px;
   object-fit: contain;
-  background: #fff;
-  box-shadow: 0 0 15px var(--accent);
+  background: #111;
+  box-shadow: 0 0 20px var(--accent1), 0 0 30px var(--accent2) inset;
 }
 .carousel-track img:hover { transform: scale(1.02); }
 .carousel-buttons {
@@ -56,19 +53,19 @@ body { font-family: var(--font-main); background: #fff; color: var(--text-dark);
   padding: 0 10px;
 }
 .carousel-buttons button {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
   border:none;
-  color: var(--accent);
+  color: var(--accent1);
   font-size: 2rem;
   padding: 6px 12px;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 0 10px var(--accent);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px var(--accent1), 0 0 20px var(--accent2) inset;
+  transition: all 0.3s ease;
 }
-.carousel-buttons button:hover {
-  background: rgba(255,255,255,0.3);
-  box-shadow: 0 0 20px var(--accent);
+.carousel-buttons button:hover { 
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 25px var(--accent1), 0 0 35px var(--accent3) inset;
 }
 
 /* TEAMS */
@@ -80,19 +77,19 @@ body { font-family: var(--font-main); background: #fff; color: var(--text-dark);
   gap: 20px;
 }
 .team-card {
-  background: #fff;
-  color: var(--text-dark);
+  background: var(--bg-light);
+  color: #111;
   border-radius: var(--radius);
   padding: 20px;
   text-align: center;
-  box-shadow: 0 0 15px var(--accent);
+  box-shadow: 0 0 25px var(--accent1), 0 0 35px var(--accent2) inset;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .team-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 30px var(--accent);
+  box-shadow: 0 0 45px var(--accent1), 0 0 60px var(--accent3) inset;
 }
-.team-card h3 { color: var(--accent); margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
+.team-card h3 { color: var(--accent1); margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; text-shadow: 0 0 10px var(--accent1); }
 .team-card p { font-size: 0.95rem; line-height: 1.4; }
 
 /* STATS */
@@ -102,33 +99,33 @@ body { font-family: var(--font-main); background: #fff; color: var(--text-dark);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  background: #fff;
+  background: var(--bg-light);
   border-radius: var(--radius);
   padding: 25px;
-  box-shadow: 0 0 30px var(--accent);
-  color: var(--text-dark);
+  box-shadow: 0 0 40px var(--accent1), 0 0 60px var(--accent2) inset;
+  color: #111;
 }
 .player-photo {
   width: 100%;
   height: 320px;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 2px solid var(--accent);
-  background: #fff;
-  box-shadow: 0 0 20px var(--accent) inset;
+  border: 2px solid var(--accent1);
+  background: #111;
+  box-shadow: 0 0 30px var(--accent1) inset, 0 0 20px var(--accent2);
 }
 .player-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  box-shadow: 0 0 20px var(--accent);
+  box-shadow: 0 0 30px var(--accent1), 0 0 40px var(--accent3) inset;
 }
 .player-info h2 {
   font-size: 2rem;
-  color: var(--accent);
+  color: var(--accent1);
   margin-bottom: 10px;
-  text-shadow: 0 0 15px var(--accent);
+  text-shadow: 0 0 20px var(--accent1), 0 0 30px var(--accent3);
 }
 .stats-grid {
   display: flex;
@@ -137,25 +134,25 @@ body { font-family: var(--font-main); background: #fff; color: var(--text-dark);
 }
 .stat-box {
   flex: 1;
-  background: #fff;
+  background: #111;
   padding: 12px;
   border-radius: var(--radius);
   text-align: center;
-  border: 1px solid var(--accent);
-  box-shadow: 0 0 20px var(--accent);
+  border: 1px solid var(--accent1);
+  box-shadow: 0 0 25px var(--accent1), 0 0 40px var(--accent2) inset;
 }
 .stat-box span {
   display: block;
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--accent);
-  text-shadow: 0 0 15px var(--accent);
+  color: var(--accent1);
+  text-shadow: 0 0 20px var(--accent1), 0 0 30px var(--accent2);
 }
 .stat-box label {
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: var(--accent);
-  text-shadow: 0 0 10px var(--accent);
+  color: var(--accent1);
+  text-shadow: 0 0 15px var(--accent1), 0 0 20px var(--accent3);
 }
 
 /* PLAYER VIDEO */
@@ -165,8 +162,8 @@ body { font-family: var(--font-main); background: #fff; color: var(--text-dark);
   margin: 50px auto;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 50px var(--accent), 0 0 70px var(--accent) inset;
+  border: 2px solid var(--accent1);
+  box-shadow: 0 0 60px var(--accent1), 0 0 80px var(--accent3) inset;
 }
 .player-video video {
   width: 100%;
@@ -175,7 +172,7 @@ body { font-family: var(--font-main); background: #fff; color: var(--text-dark);
   object-fit: cover;
   border-radius: var(--radius);
   display: block;
-  box-shadow: 0 0 40px var(--accent) inset;
+  box-shadow: 0 0 50px var(--accent1) inset, 0 0 70px var(--accent2);
   opacity: 1;
 }
 
@@ -189,17 +186,69 @@ body { font-family: var(--font-main); background: #fff; color: var(--text-dark);
 
 
 
-
+<section class="carousel">
+  <div class="carousel-track">
+    <img src="557749884_832345399308516_7827875189184831086_n (1).jpg" alt="">
+    <img src="481970377_9006043962855416_1132835275726108939_n.jpg" alt="">
+    <img src="557624557_832343755975347_3927666932069279511_n (1).jpg" alt="">
+    <img src="486952594_9149563175170160_5600242061185929716_n.jpg" alt="">
+    <img src="342018834_158261233558489_5464469159926373123_n.jpg" alt="">
+  </div>
+  <div class="carousel-buttons">
+    <button id="prev">&#10094;</button>
+    <button id="next">&#10095;</button>
+  </div>
+</section>
   
 </head>
 <body>
-
-<!-- BACKGROUND VIDEO -->
-<!-- IMAGE CAROUSEL -->  <video autoplay muted loop playsinline>
+  <section class="player-video-section">
+  <video autoplay muted loop playsinline>
     <source src="Video Project 4.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </section>
+
+<style>
+/* PLAYER VIDEO SECTION STYLES */
+.player-video-section {
+  max-width: 700px;              /* Max width of video container */
+  width: 90%;                      /* Responsive width */
+  margin: 60px auto;               /* Center with top/bottom spacing */
+  border-radius: 20px;             /* Rounded corners */
+  overflow: hidden;                /* Clip video edges */
+  padding: 5px;                    /* Inner spacing for glow */
+  background: #111;                /* Dark inner background to enhance glow */
+  box-shadow:
+    0 0 40px #00f0ff,             /* cyan glow */
+    0 0 60px #ff00f0 inset,       /* magenta inner glow */
+    0 0 80px #ff6fff;             /* purple glow */
+  border: 2px solid #fff;          /* White border for extra pop */
+  transition: all 0.3s ease;
+}
+
+.player-video-section:hover {
+  box-shadow:
+    0 0 60px #00f0ff,
+    0 0 80px #ff00f0 inset,
+    0 0 100px #ff6fff;
+}
+
+.player-video-section video {
+  width: 100%;                     /* Fill container width */
+  height: auto;                     /* Maintain aspect ratio */
+  max-height: 540px;                /* Limit height on large screens */
+  object-fit: cover;                /* Scale video nicely */
+  border-radius: 16px;              /* Rounded corners matching container */
+  box-shadow: 0 0 30px #00f0ff inset, 0 0 50px #ff00f0; /* Neon glow on video */
+  display: block;
+}
+@media(max-width:768px){
+  .player-video-section { width: 95%; margin: 40px auto; }
+  .player-video-section video { max-height: 320px; }
+}
+</style>
+
 
 
 <!-- TEAMS / CAREER -->
@@ -225,7 +274,7 @@ body { font-family: var(--font-main); background: #fff; color: var(--text-dark);
 <!-- PLAYER STATS -->
 <section class="stats-card">
   <div class="player-photo">
-    <img src="557624557_832343755975347_3927666932069279511_n (1).jpg" alt="Stefan Alexandre">
+    <img src="pic1.jpg" alt="Stefan Alexandre">
   </div>
   <div class="player-info">
     <h2>Stefan Alexandre</h2>
@@ -301,19 +350,7 @@ body { font-family: var(--font-main); background: #fff; color: var(--text-dark);
   </style>
 
 
-<section class="carousel">
-  <div class="carousel-track">
-    <img src="557749884_832345399308516_7827875189184831086_n (1).jpg" alt="">
-    <img src="481970377_9006043962855416_1132835275726108939_n.jpg" alt="">
-    <img src="557624557_832343755975347_3927666932069279511_n (1).jpg" alt="">
-    <img src="486952594_9149563175170160_5600242061185929716_n.jpg" alt="">
-    <img src="342018834_158261233558489_5464469159926373123_n.jpg" alt="">
-  </div>
-  <div class="carousel-buttons">
-    <button id="prev">&#10094;</button>
-    <button id="next">&#10095;</button>
-  </div>
-</section>
+
 
 <!-- CAROUSEL JS -->
 <script>
