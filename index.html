@@ -202,53 +202,7 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
   
 </head>
 <body>
-  <section class="player-video-section">
-  <video autoplay muted loop playsinline>
-    <source src="Video Project 4.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</section>
-
-<style>
-/* PLAYER VIDEO SECTION STYLES */
-.player-video-section {
-  max-width: 700px;              /* Max width of video container */
-  width: 90%;                      /* Responsive width */
-  margin: 60px auto;               /* Center with top/bottom spacing */
-  border-radius: 20px;             /* Rounded corners */
-  overflow: hidden;                /* Clip video edges */
-  padding: 5px;                    /* Inner spacing for glow */
-  background: #111;                /* Dark inner background to enhance glow */
-  box-shadow:
-    0 0 40px #00f0ff,             /* cyan glow */
-    0 0 60px #ff00f0 inset,       /* magenta inner glow */
-    0 0 80px #ff6fff;             /* purple glow */
-  border: 2px solid #fff;          /* White border for extra pop */
-  transition: all 0.3s ease;
-}
-
-.player-video-section:hover {
-  box-shadow:
-    0 0 60px #00f0ff,
-    0 0 80px #ff00f0 inset,
-    0 0 100px #ff6fff;
-}
-
-.player-video-section video {
-  width: 100%;                     /* Fill container width */
-  height: auto;                     /* Maintain aspect ratio */
-  max-height: 540px;                /* Limit height on large screens */
-  object-fit: cover;                /* Scale video nicely */
-  border-radius: 16px;              /* Rounded corners matching container */
-  box-shadow: 0 0 30px #00f0ff inset, 0 0 50px #ff00f0; /* Neon glow on video */
-  display: block;
-}
-@media(max-width:768px){
-  .player-video-section { width: 95%; margin: 40px auto; }
-  .player-video-section video { max-height: 320px; }
-}
-</style>
-
+  
 
 
 <!-- TEAMS / CAREER -->
@@ -326,6 +280,52 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
   </div>
 </section>
 
+<section class="player-video-section">
+  <video autoplay muted loop playsinline>
+    <source src="Video Project 4.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+<style>
+/* PLAYER VIDEO SECTION STYLES */
+.player-video-section {
+  max-width: 700px;              /* Max width of video container */
+  width: 90%;                      /* Responsive width */
+  margin: 60px auto;               /* Center with top/bottom spacing */
+  border-radius: 20px;             /* Rounded corners */
+  overflow: hidden;                /* Clip video edges */
+  padding: 5px;                    /* Inner spacing for glow */
+  background: #111;                /* Dark inner background to enhance glow */
+  box-shadow:
+    0 0 40px #00f0ff,             /* cyan glow */
+    0 0 60px #ff00f0 inset,       /* magenta inner glow */
+    0 0 80px #ff6fff;             /* purple glow */
+  border: 2px solid #fff;          /* White border for extra pop */
+  transition: all 0.3s ease;
+}
+
+.player-video-section:hover {
+  box-shadow:
+    0 0 60px #00f0ff,
+    0 0 80px #ff00f0 inset,
+    0 0 100px #ff6fff;
+}
+
+.player-video-section video {
+  width: 100%;                     /* Fill container width */
+  height: auto;                     /* Maintain aspect ratio */
+  max-height: 540px;                /* Limit height on large screens */
+  object-fit: cover;                /* Scale video nicely */
+  border-radius: 16px;              /* Rounded corners matching container */
+  box-shadow: 0 0 30px #00f0ff inset, 0 0 50px #ff00f0; /* Neon glow on video */
+  display: block;
+}
+@media(max-width:768px){
+  .player-video-section { width: 95%; margin: 40px auto; }
+  .player-video-section video { max-height: 320px; }
+}
+</style>
 
 
 <!-- CAROUSEL JS -->
