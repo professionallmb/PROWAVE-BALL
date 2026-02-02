@@ -10,10 +10,10 @@
 
 <style>
 :root {
-  --bg-dark: #121212;
-  --bg-light: #f5f5f5;
-  --accent: #0055a5;
-  --text-dark: #222;
+  --bg-dark: #121212;       /* Dark background */
+  --bg-light: #f5f5f5;      /* Light container background */
+  --accent: #fff;            /* White glow accent */
+  --text-dark: #222;         
   --text-light: #fff;
   --radius: 12px;
   --font-main: "Inter", system-ui, sans-serif;
@@ -43,7 +43,7 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   margin: 40px auto;
   overflow: hidden;
   border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(255,255,255,0.5);
   background: #1e1e1e;
   z-index: 5;
 }
@@ -56,6 +56,7 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   height: 500px;
   object-fit: contain;
   background: #000;
+  box-shadow: 0 0 15px rgba(255,255,255,0.6);
 }
 .carousel-track img:hover { transform: scale(1.02); }
 .carousel-buttons {
@@ -68,16 +69,20 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   padding: 0 10px;
 }
 .carousel-buttons button {
-  background: rgba(0,0,0,0.6);
+  background: rgba(255,255,255,0.1);
   border:none;
   color: var(--accent);
   font-size: 2rem;
   padding: 6px 12px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px var(--accent);
 }
-.carousel-buttons button:hover { background: rgba(0,0,0,0.85); }
+.carousel-buttons button:hover { 
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 20px var(--accent);
+}
 
 /* TEAMS */
 .teams {
@@ -94,11 +99,11 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px var(--accent);
 }
 .team-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 0 25px var(--accent);
 }
 .team-card h3 { color: var(--accent); margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
 .team-card p { font-size: 0.95rem; line-height: 1.4; }
@@ -113,7 +118,7 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   background: var(--bg-light);
   border-radius: var(--radius);
   padding: 25px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 0 20px var(--accent);
   color: var(--text-dark);
 }
 .player-photo {
@@ -121,19 +126,22 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   height: 320px;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid #ccc;
+  border: 1px solid var(--accent);
   background: #000;
+  box-shadow: 0 0 15px var(--accent) inset;
 }
 .player-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  box-shadow: 0 0 15px var(--accent);
 }
 .player-info h2 {
   font-size: 2rem;
   color: var(--accent);
   margin-bottom: 10px;
+  text-shadow: 0 0 10px var(--accent);
 }
 .stats-grid {
   display: flex;
@@ -142,22 +150,25 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
 }
 .stat-box {
   flex: 1;
-  background: #eaeaea;
+  background: #000;
   padding: 12px;
   border-radius: var(--radius);
   text-align: center;
-  border: 1px solid #ccc;
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 15px var(--accent);
 }
 .stat-box span {
   display: block;
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--accent);
+  text-shadow: 0 0 10px var(--accent);
 }
 .stat-box label {
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: var(--text-dark);
+  color: var(--accent);
+  text-shadow: 0 0 5px var(--accent);
 }
 
 /* RESPONSIVE */
@@ -168,6 +179,7 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
 }
 </style>
 
+  
 </head>
 <body>
 
@@ -179,9 +191,11 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
 <!-- IMAGE CAROUSEL -->
 <section class="carousel">
   <div class="carousel-track">
-    <img src="514285287_796776812865375_4235338983271540027_n.jpg" alt="">
-    <img src="514285287_796776812865375_4235338983271540027_n.jpg" alt="">
-    <img src="514285287_796776812865375_4235338983271540027_n.jpg" alt="">
+    <img src="557749884_832345399308516_7827875189184831086_n (1).jpg" alt="">
+    <img src="481970377_9006043962855416_1132835275726108939_n.jpg" alt="">
+    <img src="557624557_832343755975347_3927666932069279511_n (1).jpg" alt="">
+    <img src="486952594_9149563175170160_5600242061185929716_n.jpg" alt="">
+    <img src="342018834_158261233558489_5464469159926373123_n.jpg" alt="">
   </div>
   <div class="carousel-buttons">
     <button id="prev">&#10094;</button>
