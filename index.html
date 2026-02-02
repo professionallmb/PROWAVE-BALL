@@ -10,31 +10,18 @@
 
 <style>
 :root {
-  --bg-dark: #121212;       /* Dark background */
-  --bg-light: #f5f5f5;      /* Light container background */
-  --accent: #fff;            /* White glow accent */
-  --text-dark: #222;         
-  --text-light: #fff;
-  --radius: 12px;
+  --bg-dark: #121212;
+  --bg-light: #fff;        /* full white containers for glow */
+  --accent: #fff;          /* white glow accent */
+  --text-dark: #222;
+  --text-light: #000;
+  --radius: 16px;
   --font-main: "Inter", system-ui, sans-serif;
 }
 
 /* RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: var(--font-main); background: var(--bg-dark); color: var(--text-light); line-height:1.5; overflow-x: hidden; }
-
-/* BACKGROUND VIDEO */
-#bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -10;
-  opacity: 0.25;
-  pointer-events: none;
-}
+body { font-family: var(--font-main); background: #fff; color: var(--text-dark); line-height:1.5; overflow-x: hidden; }
 
 /* CAROUSEL */
 .carousel {
@@ -43,8 +30,8 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   margin: 40px auto;
   overflow: hidden;
   border-radius: var(--radius);
-  box-shadow: 0 0 20px rgba(255,255,255,0.5);
-  background: #1e1e1e;
+  box-shadow: 0 0 30px var(--accent);
+  background: #fff;
   z-index: 5;
 }
 .carousel-track {
@@ -55,8 +42,8 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   width: 100%;
   height: 500px;
   object-fit: contain;
-  background: #000;
-  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+  background: #fff;
+  box-shadow: 0 0 15px var(--accent);
 }
 .carousel-track img:hover { transform: scale(1.02); }
 .carousel-buttons {
@@ -69,18 +56,18 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   padding: 0 10px;
 }
 .carousel-buttons button {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.2);
   border:none;
   color: var(--accent);
   font-size: 2rem;
   padding: 6px 12px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 0 10px var(--accent);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
-.carousel-buttons button:hover { 
-  background: rgba(255,255,255,0.2);
+.carousel-buttons button:hover {
+  background: rgba(255,255,255,0.3);
   box-shadow: 0 0 20px var(--accent);
 }
 
@@ -93,17 +80,17 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   gap: 20px;
 }
 .team-card {
-  background: var(--bg-light);
+  background: #fff;
   color: var(--text-dark);
   border-radius: var(--radius);
   padding: 20px;
   text-align: center;
+  box-shadow: 0 0 15px var(--accent);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 10px var(--accent);
 }
 .team-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 25px var(--accent);
+  box-shadow: 0 0 30px var(--accent);
 }
 .team-card h3 { color: var(--accent); margin-bottom: 8px; font-size: 1.25rem; font-weight: 600; }
 .team-card p { font-size: 0.95rem; line-height: 1.4; }
@@ -115,10 +102,10 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  background: var(--bg-light);
+  background: #fff;
   border-radius: var(--radius);
   padding: 25px;
-  box-shadow: 0 0 20px var(--accent);
+  box-shadow: 0 0 30px var(--accent);
   color: var(--text-dark);
 }
 .player-photo {
@@ -126,22 +113,22 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
   height: 320px;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid var(--accent);
-  background: #000;
-  box-shadow: 0 0 15px var(--accent) inset;
+  border: 2px solid var(--accent);
+  background: #fff;
+  box-shadow: 0 0 20px var(--accent) inset;
 }
 .player-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  box-shadow: 0 0 15px var(--accent);
+  box-shadow: 0 0 20px var(--accent);
 }
 .player-info h2 {
   font-size: 2rem;
   color: var(--accent);
   margin-bottom: 10px;
-  text-shadow: 0 0 10px var(--accent);
+  text-shadow: 0 0 15px var(--accent);
 }
 .stats-grid {
   display: flex;
@@ -150,57 +137,58 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
 }
 .stat-box {
   flex: 1;
-  background: #000;
+  background: #fff;
   padding: 12px;
   border-radius: var(--radius);
   text-align: center;
   border: 1px solid var(--accent);
-  box-shadow: 0 0 15px var(--accent);
+  box-shadow: 0 0 20px var(--accent);
 }
 .stat-box span {
   display: block;
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--accent);
-  text-shadow: 0 0 10px var(--accent);
+  text-shadow: 0 0 15px var(--accent);
 }
 .stat-box label {
   font-size: 0.75rem;
   text-transform: uppercase;
   color: var(--accent);
-  text-shadow: 0 0 5px var(--accent);
-}
-<style>
-.player-video {
-  max-width: 950px;       /* Maximum width of video container */
-  width: 90%;             /* Responsive width */
-  margin: 50px auto;      /* Center on page */
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 0 40px #fff, 0 0 60px #fff inset;
-  border: 1px solid #fff;
+  text-shadow: 0 0 10px var(--accent);
 }
 
-.player-video video {
-  width: 100%;           /* Fill container width */
-  height: 100%;          /* Fill container height */
-  max-height: 540px;     /* Optional: prevent too tall on large screens */
-  object-fit: cover;     /* Video scales to fill without stretching */
-  border-radius: 16px;
-  display: block;
-  box-shadow: 0 0 30px #fff inset;
-  opacity: 1;            /* Full visibility */
+/* PLAYER VIDEO */
+.player-video {
+  max-width: 950px;
+  width: 90%;
+  margin: 50px auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 50px var(--accent), 0 0 70px var(--accent) inset;
 }
-  @media(max-width:768px){
+.player-video video {
+  width: 100%;
+  height: 100%;
+  max-height: 540px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+  box-shadow: 0 0 40px var(--accent) inset;
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
   .stats-card { grid-template-columns: 1fr; }
   .player-photo { height: 240px; }
   .carousel-track img { height: 300px; }
 }
 </style>
 
-/* RESPONSIVE */
 
-</style>
+
 
   
 </head>
@@ -296,11 +284,36 @@ body { font-family: var(--font-main); background: var(--bg-dark); color: var(--t
 </script>
 <!-- PLAYER VIDEO -->
 <section class="player-video">
+  <style>
+    .player-video {
+      width: 90%;              /* container fills most of the page width */
+      max-width: 950px;        /* optional maximum width */
+      margin: 50px auto;       /* center horizontally */
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 40px #fff, 0 0 60px #fff inset;  /* glowing effect */
+      border: 1px solid #fff;
+      position: relative;      /* for child sizing */
+      aspect-ratio: 16/9;      /* keeps proper video aspect ratio */
+    }
+
+    .player-video video {
+      width: 100%;             /* fill the container width */
+      height: 100%;            /* fill the container height */
+      object-fit: cover;       /* scales video to fill without stretching */
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 0 30px #fff inset;  /* inner glow */
+      opacity: 1;              /* fully visible */
+    }
+  </style>
+
   <video autoplay muted loop playsinline>
     <source src="Video Project 4.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </section>
+
 
 <!-- CAROUSEL JS -->
 <script>
