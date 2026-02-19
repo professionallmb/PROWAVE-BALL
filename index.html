@@ -8,6 +8,7 @@
 <!-- GOOGLE VERIFICATION -->
 <meta name="google-site-verification" content="google5b55417f40f486ff.html">
 <style>
+
 :root {
   --bg-light: #fff;          /* Base white for containers */
   --accent1: #00f0ff;        /* Cyan glow */
@@ -155,6 +156,35 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
   text-shadow: 0 0 15px var(--accent1), 0 0 20px var(--accent3);
 }
 
+/* PLAYER VIDEO */
+.player-video {
+  max-width: 950px;
+  width: 90%;
+  margin: 50px auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid var(--accent1);
+  box-shadow: 0 0 60px var(--accent1), 0 0 80px var(--accent3) inset;
+}
+.player-video video {
+  width: 100%;
+  height: 100%;
+  max-height: 540px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+  box-shadow: 0 0 50px var(--accent1) inset, 0 0 70px var(--accent2);
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .stats-card { grid-template-columns: 1fr; }
+  .player-photo { height: 240px; }
+  .carousel-track img { height: 300px; }
+}
+</style>
+
 /* ===== CAREER SUMMARY SECTION ===== */
 
 .career-summary {
@@ -217,75 +247,7 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
     font-size: 15px;
   }
 }
-.carousel-bg {
-  position: relative;
-  width: 100%;
-  height: 600px;       /* adjust to your section height */
-  overflow: hidden;
-}
 
-.carousel-track {
-  display: flex;
-  width: 500%;          /* 5 slides */
-  height: 100%;
-  transition: transform 0.8s ease-in-out;
-}
-
-.slide {
-  flex: 0 0 20%;       /* 5 slides -> each takes 20% */
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Carousel buttons */
-.carousel-buttons {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  padding: 0 20px;
-  pointer-events: none;
-}
-
-.carousel-buttons button {
-  pointer-events: all;
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  border: none;
-  font-size: 2rem;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.carousel-buttons button:hover {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.player-video {
-  max-width: 950px;
-  width: 90%;
-  margin: 50px auto;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 2px solid var(--accent1);
-  box-shadow: 0 0 60px var(--accent1), 0 0 80px var(--accent3) inset;
-}
-.player-video video {
-  width: 100%;
-  height: 100%;
-  max-height: 540px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  display: block;
-  box-shadow: 0 0 50px var(--accent1) inset, 0 0 70px var(--accent2);
-  opacity: 1;
-}
 
 .career-images {
   display: flex;
@@ -308,65 +270,7 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
   box-shadow: 0 4px 14px rgba(59, 130, 246, 0.5);
 }
 
-.carousel {
-  position: relative;
-  width: 100%;
-  height: 600px;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-}
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.8s ease-in-out;
-  height: 100%;
-}
-
-.slide {
-  min-width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  flex-shrink: 0;
-  transition: transform 0.8s ease;
-}
-
-/* Buttons */
-.carousel-buttons {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  pointer-events: none;
-  padding: 0 20px;
-}
-
-.carousel-buttons button {
-  pointer-events: all;
-  background: rgba(0,0,0,0.4);
-  color: #fff;
-  border: none;
-  font-size: 2rem;
-  padding: 8px 14px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.carousel-buttons button:hover {
-  background: rgba(0,0,0,0.7);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .carousel {
-    height: 400px;
-  }
-}
 
 .coach-inline {
   height: 120px;
