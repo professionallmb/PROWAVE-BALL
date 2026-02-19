@@ -308,7 +308,66 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
   box-shadow: 0 4px 14px rgba(59, 130, 246, 0.5);
 }
 
-/* Inline coach photos */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  transition: transform 0.8s ease;
+}
+
+/* Buttons */
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+  padding: 0 20px;
+}
+
+.carousel-buttons button {
+  pointer-events: all;
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 8px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-buttons button:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel {
+    height: 400px;
+  }
+}
+
 .coach-inline {
   height: 120px;
   width: auto;
@@ -350,7 +409,7 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
 }
 </style>
 
-<!-- TEAMS / CAREER -->
+
 <section class="teams">
   <div class="team-card">
     <h3>Vistula Warsaw</h3>
@@ -394,6 +453,20 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
         <span>1</span><label>SPG</label>
       </div>
     </div>
+  </div>
+</section>
+<section class="carousel">
+  <div class="carousel-track">
+    <div class="slide" style="background-image: url('557749884_832345399308516_7827875189184831086_n (1).jpg');"></div>
+    <div class="slide" style="background-image: url('481970377_9006043962855416_1132835275726108939_n.jpg');"></div>
+    <div class="slide" style="background-image: url('557624557_832343755975347_3927666932069279511_n (1).jpg');"></div>
+    <div class="slide" style="background-image: url('486952594_9149563175170160_5600242061185929716_n.jpg');"></div>
+    <div class="slide" style="background-image: url('342018834_158261233558489_5464469159926373123_n.jpg');"></div>
+  </div>
+
+  <div class="carousel-buttons">
+    <button id="prev">&#10094;</button>
+    <button id="next">&#10095;</button>
   </div>
 </section>
 
@@ -533,28 +606,35 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
 </style>
 
 <script>
-  const careerSection = document.getElementById('career-bg');
-
-const bgImages = [
-  '557749884_832345399308516_7827875189184831086_n (1).jpg',
-  '481970377_9006043962855416_1132835275726108939_n.jpg',
-  '557624557_832343755975347_3927666932069279511_n (1).jpg',
-  '486952594_9149563175170160_5600242061185929716_n.jpg',
-  '342018834_158261233558489_5464469159926373123_n.jpg'
-];
+  const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextBtn = document.getElementById('next');
+const prevBtn = document.getElementById('prev');
 
 let currentIndex = 0;
 
-// initial background
-careerSection.style.backgroundImage = `url('${bgImages[currentIndex]}')`;
+// update carousel position
+function updateCarousel() {
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
 
-// change background every 6 seconds
+// Next/Prev Buttons
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
+});
+
+// Auto-slide every 6 seconds
 setInterval(() => {
-  currentIndex = (currentIndex + 1) % bgImages.length;
-  careerSection.style.backgroundImage = `url('${bgImages[currentIndex]}')`;
-}, 6000);
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+}, 15000);
 
-</script>
 </script>
 
 </body>
