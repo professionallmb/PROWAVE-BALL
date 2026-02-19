@@ -8,7 +8,15 @@
 <!-- GOOGLE VERIFICATION -->
 <meta name="google-site-verification" content="google5b55417f40f486ff.html">
 <style>
-root { --bg-light: #fff; /* Base white for containers */ --accent1: #00f0ff; /* Cyan glow */ --accent2: #ff00f0; /* Magenta glow */ --accent3: #ff6fff; /* Pink/purple glow */ --radius: 16px; --font-main: "Inter", system-ui, sans-serif; }
+:root {
+  --bg-light: #fff;          /* Base white for containers */
+  --accent1: #00f0ff;        /* Cyan glow */
+  --accent2: #ff00f0;        /* Magenta glow */
+  --accent3: #ff6fff;        /* Pink/purple glow */
+  --radius: 16px;
+  --font-main: "Inter", system-ui, sans-serif;
+}
+
 /* RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: var(--font-main); background: #121212; color: #fff; line-height:1.5; overflow-x: hidden; }
@@ -224,13 +232,11 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
 }
 
 .slide {
-  min-width: 100%;
+  flex: 0 0 20%;       /* 5 slides -> each takes 20% */
   height: 100%;
-  background-size: contain;        /* ensures entire image fits */
-  background-position: center;     /* centers the image */
-  background-repeat: no-repeat;    /* no tiling */
-  flex-shrink: 0;
-  transition: transform 0.8s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Carousel buttons */
