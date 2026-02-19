@@ -155,7 +155,69 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
   text-shadow: 0 0 15px var(--accent1), 0 0 20px var(--accent3);
 }
 
-/* PLAYER VIDEO */
+/* ===== CAREER SUMMARY SECTION ===== */
+
+.career-summary {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0f172a, #111827);
+  display: flex;
+  justify-content: center;
+}
+
+.summary-container {
+  max-width: 900px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 50px;
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 40px rgba(0, 150, 255, 0.08);
+  transition: all 0.4s ease;
+}
+
+.summary-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 60px rgba(0, 150, 255, 0.18);
+}
+
+.career-summary h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  border-left: 5px solid #3b82f6;
+  padding-left: 15px;
+}
+
+.career-summary p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #d1d5db;
+  margin-bottom: 22px;
+  font-weight: 400;
+}
+
+.career-summary p strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .summary-container {
+    padding: 30px;
+  }
+
+  .career-summary h2 {
+    font-size: 24px;
+  }
+
+  .career-summary p {
+    font-size: 15px;
+  }
+}
+
 .player-video {
   max-width: 950px;
   width: 90%;
@@ -176,7 +238,62 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
   opacity: 1;
 }
 
-/* RESPONSIVE */
+.career-images {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.career-img {
+  height: 150px;
+  width: auto;
+  border-radius: 10px;
+  border: 2px solid #1f2937;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.career-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.5);
+}
+
+/* Inline coach photos */
+.coach-inline {
+  height: 120px;
+  width: auto;
+  border-radius: 8px;
+  border: 2px solid #3b82f6; /* subtle blue highlight */
+  margin: 0 0 0 12px;         /* space after mention */
+  vertical-align: middle;
+  object-fit: cover;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.coach-inline:hover {
+  transform: scale(1.1);
+}
+
+/* Paragraph text */
+.career-summary p {
+  font-size: 18px;
+  line-height: 1.75;
+  margin-bottom: 18px;
+  font-weight: 400;
+  color: #d2d8e3;
+}
+
+.career-summary p strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .career-img {
+
+
 @media(max-width:768px){
   .stats-card { grid-template-columns: 1fr; }
   .player-photo { height: 240px; }
@@ -204,7 +321,39 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
   </div>
 </section>
 
-<!-- PLAYER STATS -->
+<section class="stats-card">
+  <div class="player-photo">
+    <img src="pic2.jpg" alt="Stefan Alexandre">
+  </div>
+  <div class="player-info">
+    <h2>Stefan Alexandre</h2>
+    <p><b>Position:</b>  Point Guard/Shooting Guard</p>
+    <p><b>Height:</b> 196 cm</p>
+    <p><b>Weight:</b> 92 kg</p>
+    <p><b>Age:</b> 25</p>
+    <div class="stats-grid">
+      <div class="stat-box" style="background:linear-gradient(145deg,#00f0ff,#ff00f0); box-shadow:0 0 15px #00f0ff;">
+        <span>13</span><label>PPG</label>
+      </div>
+      <div class="stat-box" style="background:linear-gradient(145deg,#00f0ff,#ff00f0); box-shadow:0 0 15px #00f0ff;">
+        <span>6</span><label>APG</label>
+      </div>
+      <div class="stat-box" style="background:linear-gradient(145deg,#00f0ff,#ff00f0); box-shadow:0 0 15px #00f0ff;">
+        <span>4</span><label>RPG</label>
+      </div>
+      <div class="stat-box" style="background:linear-gradient(145deg,#00f0ff,#ff00f0); box-shadow:0 0 15px #00f0ff;">
+        <span>1</span><label>SPG</label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="player-video-section">
+  <video autoplay muted loop playsinline>
+    <source src="Video Project 4.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
 
 
 <!-- JSON-LD Structured Data -->
@@ -249,43 +398,63 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
   
 </head>
 <body>
-  
+<section class="career-summary">
+  <div class="summary-container">
+    <h2>Stefan Alexandre – Career Journey (2019–2025)</h2>
 
-
-<!-- PLAYER VIDEO -->
-<section class="stats-card">
-  <div class="player-photo">
-    <img src="pic2.jpg" alt="Stefan Alexandre">
-  </div>
-  <div class="player-info">
-    <h2>Stefan Alexandre</h2>
-    <p><b>Position:</b> Small Forward / Point Guard</p>
-    <p><b>Height:</b> 196 cm</p>
-    <p><b>Weight:</b> 92 kg</p>
-    <p><b>Age:</b> 25</p>
-    <div class="stats-grid">
-      <div class="stat-box" style="background:linear-gradient(145deg,#00f0ff,#ff00f0); box-shadow:0 0 15px #00f0ff;">
-        <span>13</span><label>PPG</label>
-      </div>
-      <div class="stat-box" style="background:linear-gradient(145deg,#00f0ff,#ff00f0); box-shadow:0 0 15px #00f0ff;">
-        <span>6</span><label>APG</label>
-      </div>
-      <div class="stat-box" style="background:linear-gradient(145deg,#00f0ff,#ff00f0); box-shadow:0 0 15px #00f0ff;">
-        <span>4</span><label>RPG</label>
-      </div>
-      <div class="stat-box" style="background:linear-gradient(145deg,#00f0ff,#ff00f0); box-shadow:0 0 15px #00f0ff;">
-        <span>1</span><label>SPG</label>
-      </div>
+    <div class="career-images">
+      <img src="https://vistula.edu.pl/wp-content/uploads/2022/01/koszykarze-1.jpeg" alt="Vistula University Basketball Team" class="career-img">
+      <img src="https://b2929804.smushcdn.com/2929804/wp-content/uploads/2022/01/wf-1-565x278-1.jpeg?lossy=1&strip=1&webp=1" alt="Team action photo" class="career-img">
+      <img src="https://b2929804.smushcdn.com/2929804/wp-content/uploads/2022/12/Koszykarze-Vistuli-mistrzami.jpg?lossy=1&strip=1&webp=1" alt="Vistula champions photo" class="career-img">
     </div>
+
+    <p>
+      <strong>2019 – Amateur Beginnings:</strong> Stefan Alexandre’s basketball journey began in Poland,
+      competing in amateur and semi‑professional leagues. His natural athleticism and versatility quickly 
+      set him apart, earning attention from structured teams.
+    </p>
+
+    <p>
+      <strong>2020 – AZS Vistula University:</strong> Stefan progressed to play in the Warsaw Academic 
+      Championships – I League with AZS Vistula University, under the guidance of Coach <strong>Dariusz Sworst</strong>.
+      <img src="https://vistula.edu.pl/wp-content/uploads/2022/01/wf-7-340x340-1.jpeg" alt="Dariusz Sworst coaching" class="coach-inline">
+      That season included intense league battles, showcasing discipline, strategy, and tactical maturity.
+    </p>
+
+    <p>
+      <strong>2022 – Professional Development (2 Liga):</strong> Stefan joined the AZS UW Warsaw team 
+      coached by <strong>Konrad Budka</strong>.
+      <img src="https://pzkosz.pl/internalfiles/image/news/63019/1560x878crop/21723.jpg" alt="Konrad Budka coaching" class="coach-inline">
+      Under his mentorship, Stefan refined his game in Poland’s competitive 2 Liga — a turning point in his professional development.
+    </p>
+
+    <p>
+      <strong>2023 – International Squad & Promotion Contender:</strong> Returning to Vistula, Stefan 
+      competed with one of Poland’s most international academic teams. His leadership caught the eye of 
+      nationally ranked pro teams pursuing promotion.
+    </p>
+
+    <p>
+      <strong>2025 – Costa do Sol (Mozambique):</strong> Stefan returned home to play professionally 
+      with Costa do Sol, one of Mozambique’s top clubs, bringing his international experience, skill, 
+      and competitive edge back to the national stage.
+    </p>
+
+    <p>
+      Mentored by Coaches <strong>Dariusz Sworst</strong> and <strong>Konrad Budka</strong>, Stefan’s 
+      foundational training emphasized fundamentals, conditioning, tactical strength, and professional habits — 
+      helping him rise from beginner to international pro.
+    </p>
+
+    <p>
+      From amateur court battles in 2019 to pro competition in 2025, Stefan Alexandre’s journey reflects 
+      resilience, adaptability, and elite growth.
+    </p>
+
   </div>
 </section>
 
-<section class="player-video-section">
-  <video autoplay muted loop playsinline>
-    <source src="Video Project 4.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</section>
+
 
 <style>
 /* PLAYER VIDEO SECTION STYLES */
@@ -363,4 +532,3 @@ window.addEventListener('resize', updateCarousel);
 
 </body>
 </html>
-
