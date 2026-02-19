@@ -404,20 +404,6 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
   </video>
 </section>
 
-<section class="carousel-bg">
-  <div class="carousel-track">
-    <div class="slide" style="background-image: url('557749884_832345399308516_7827875189184831086_n (1).jpg');"></div>
-    <div class="slide" style="background-image: url('481970377_9006043962855416_1132835275726108939_n.jpg');"></div>
-    <div class="slide" style="background-image: url('557624557_832343755975347_3927666932069279511_n (1).jpg');"></div>
-    <div class="slide" style="background-image: url('486952594_9149563175170160_5600242061185929716_n.jpg');"></div>
-    <div class="slide" style="background-image: url('342018834_158261233558489_5464469159926373123_n.jpg');"></div>
-  </div>
-
-  <div class="carousel-buttons">
-    <button id="prev">&#10094;</button>
-    <button id="next">&#10095;</button>
-  </div>
-</section>
 
 
 <!-- JSON-LD Structured Data -->
@@ -546,41 +532,29 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
 }
 </style>
 
-const track = document.querySelector('.carousel-track');
-const slides = Array.from(track.children);
-const nextBtn = document.getElementById('next');
-const prevBtn = document.getElementById('prev');
+<script>
+  const careerSection = document.getElementById('career-bg');
+
+const bgImages = [
+  '557749884_832345399308516_7827875189184831086_n (1).jpg',
+  '481970377_9006043962855416_1132835275726108939_n.jpg',
+  '557624557_832343755975347_3927666932069279511_n (1).jpg',
+  '486952594_9149563175170160_5600242061185929716_n.jpg',
+  '342018834_158261233558489_5464469159926373123_n.jpg'
+];
+
 let currentIndex = 0;
 
-// update carousel position using percentage
-function updateCarousel() {
-  const percent = (100 / slides.length) * currentIndex; 
-  track.style.transform = `translateX(-${percent}%)`;
-}
+// initial background
+careerSection.style.backgroundImage = `url('${bgImages[currentIndex]}')`;
 
-// next/prev buttons
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateCarousel();
-});
-
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateCarousel();
-});
-
-// auto-slide every 9 seconds
+// change background every 6 seconds
 setInterval(() => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateCarousel();
-}, 10000);
+  currentIndex = (currentIndex + 1) % bgImages.length;
+  careerSection.style.backgroundImage = `url('${bgImages[currentIndex]}')`;
+}, 6000);
 
-// optional: set each slide's width dynamically (flex)
-slides.forEach(slide => {
-  slide.style.flex = `0 0 ${100 / slides.length}%`;
-});
-
-window.addEventListener('resize', updateCarousel);
+</script>
 </script>
 
 </body>
