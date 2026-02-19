@@ -217,6 +217,55 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
     font-size: 15px;
   }
 }
+.carousel-bg {
+  position: relative;
+  width: 100%;
+  height: 600px;       /* adjust to your section height */
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  width: 500%;          /* 5 slides */
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 20%;       /* 5 slides -> each takes 20% */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Carousel buttons */
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.carousel-buttons button {
+  pointer-events: all;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-buttons button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
 
 .player-video {
   max-width: 950px;
@@ -355,20 +404,20 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
   </video>
 </section>
 
-<section class="carousel">
+<section class="carousel-bg">
   <div class="carousel-track">
-    <img src="557749884_832345399308516_7827875189184831086_n (1).jpg" alt="">
-    <img src="481970377_9006043962855416_1132835275726108939_n.jpg" alt="">
-    <img src="557624557_832343755975347_3927666932069279511_n (1).jpg" alt="">
-    <img src="486952594_9149563175170160_5600242061185929716_n.jpg" alt="">
-    <img src="342018834_158261233558489_5464469159926373123_n.jpg" alt="">
+    <div class="slide" style="background-image: url('557749884_832345399308516_7827875189184831086_n (1).jpg');"></div>
+    <div class="slide" style="background-image: url('481970377_9006043962855416_1132835275726108939_n.jpg');"></div>
+    <div class="slide" style="background-image: url('557624557_832343755975347_3927666932069279511_n (1).jpg');"></div>
+    <div class="slide" style="background-image: url('486952594_9149563175170160_5600242061185929716_n.jpg');"></div>
+    <div class="slide" style="background-image: url('342018834_158261233558489_5464469159926373123_n.jpg');"></div>
   </div>
+
   <div class="carousel-buttons">
     <button id="prev">&#10094;</button>
     <button id="next">&#10095;</button>
   </div>
 </section>
-  
 
 
 <!-- JSON-LD Structured Data -->
@@ -497,19 +546,16 @@ body { font-family: var(--font-main); background: #121212; color: #fff; line-hei
 }
 </style>
 
-
-<!-- CAROUSEL JS -->
-<script>
 const track = document.querySelector('.carousel-track');
 const slides = Array.from(track.children);
 const nextBtn = document.getElementById('next');
 const prevBtn = document.getElementById('prev');
 let currentIndex = 0;
 
-// update carousel position
+// update carousel position using percentage
 function updateCarousel() {
-  const width = slides[0].getBoundingClientRect().width;
-  track.style.transform = `translateX(-${currentIndex * width}px)`;
+  const percent = (100 / slides.length) * currentIndex; 
+  track.style.transform = `translateX(-${percent}%)`;
 }
 
 // next/prev buttons
@@ -517,16 +563,22 @@ nextBtn.addEventListener('click', () => {
   currentIndex = (currentIndex + 1) % slides.length;
   updateCarousel();
 });
+
 prevBtn.addEventListener('click', () => {
   currentIndex = (currentIndex - 1 + slides.length) % slides.length;
   updateCarousel();
 });
 
-// auto-slide every 4 seconds
+// auto-slide every 9 seconds
 setInterval(() => {
   currentIndex = (currentIndex + 1) % slides.length;
   updateCarousel();
-}, 9000);
+}, 10000);
+
+// optional: set each slide's width dynamically (flex)
+slides.forEach(slide => {
+  slide.style.flex = `0 0 ${100 / slides.length}%`;
+});
 
 window.addEventListener('resize', updateCarousel);
 </script>
